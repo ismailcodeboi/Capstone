@@ -35,6 +35,8 @@ public class UI extends javax.swing.JFrame {
         lanesSlider = new javax.swing.JSlider();
         lanesLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
+        intersectionSlider = new javax.swing.JSlider();
+        intersectionLabel = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -51,6 +53,7 @@ public class UI extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 457));
 
         trafficSlider.setMajorTickSpacing(100);
         trafficSlider.setMaximum(1000);
@@ -74,14 +77,16 @@ public class UI extends javax.swing.JFrame {
         speedLabel.setText("Speed");
 
         lanesSlider.setMajorTickSpacing(1);
-        lanesSlider.setMaximum(10);
+        lanesSlider.setMaximum(6);
         lanesSlider.setPaintLabels(true);
         lanesSlider.setPaintTicks(true);
         lanesSlider.setSnapToTicks(true);
         lanesSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lanesSlider.setName(""); // NOI18N
 
+        lanesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lanesLabel.setText("Number of Lanes");
+        lanesLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         startButton.setLabel("Start");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +94,18 @@ public class UI extends javax.swing.JFrame {
                 startButtonActionPerformed(evt);
             }
         });
+
+        intersectionSlider.setMajorTickSpacing(1);
+        intersectionSlider.setMaximum(6);
+        intersectionSlider.setPaintLabels(true);
+        intersectionSlider.setPaintTicks(true);
+        intersectionSlider.setSnapToTicks(true);
+        intersectionSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        intersectionSlider.setName(""); // NOI18N
+
+        intersectionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        intersectionLabel.setText("Number of Intersections");
+        intersectionLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -158,24 +175,35 @@ public class UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lanesLabel)
-                    .addComponent(lanesSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-                    .addComponent(speedLabel)
-                    .addComponent(speedSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-                    .addComponent(trafficLabel)
-                    .addComponent(trafficSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(296, Short.MAX_VALUE)
-                .addComponent(startButton)
-                .addGap(290, 290, 290))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(intersectionSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(speedSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(trafficSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lanesSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(startButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(trafficLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(speedLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(lanesLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(intersectionLabel)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(32, 32, 32)
                 .addComponent(trafficLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(trafficSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,9 +215,13 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(lanesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lanesSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(intersectionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(intersectionSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(startButton)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         startButton.getAccessibleContext().setAccessibleDescription("");
@@ -202,7 +234,12 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new View().setVisible(true);
+            }
+        });
+        this.setVisible(false);
     }//GEN-LAST:event_startButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,6 +252,8 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JLabel intersectionLabel;
+    private javax.swing.JSlider intersectionSlider;
     private javax.swing.JLabel lanesLabel;
     private javax.swing.JSlider lanesSlider;
     private javax.swing.JMenuBar menuBar;
