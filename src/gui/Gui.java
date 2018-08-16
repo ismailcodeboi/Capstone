@@ -10,5 +10,13 @@ package gui;
  * @author HSSMUH010
  */
 public class Gui {
-    
+    public static void main(String args[]) {
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UI().setVisible(true);
+            }
+        });
+    }
 }
