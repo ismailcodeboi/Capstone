@@ -8,8 +8,12 @@ package gui;
 /**
  *
  * @author HSSMUH010
- */
-public class Gui {
+ */public class Gui {
+    public static int traffic;
+    public static int speed;
+    public static int lanes;
+    public static int intersections;
+     
     public static void main(String args[]) {
 
         /* Create and display the form */
